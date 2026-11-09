@@ -15,6 +15,7 @@
     "cordis.patch.yml",
     "dsh-plugin.naming.json",
     "lib/",
+    "scripts/",
     "README.md"
   ],
   "license": "MIT",
@@ -25,7 +26,9 @@
   "scripts": {
     "test": "node --test \"tests/*.test.mjs\"",
     "check:syntax": "node --check index.js && node --check client.js && node --check lib/paths.mjs && node --check lib/contract.mjs && node --check lib/store.mjs && node --check lib/service.mjs",
-    "check:naming": "node D:/DSHData/home/skills/plugin-write/scripts/validate-names.mjs --manifest ./dsh-plugin.naming.json"
+    "check:naming": "node D:/DSHData/home/skills/plugin-write/scripts/validate-names.mjs --manifest ./dsh-plugin.naming.json",
+    "preview": "node scripts/compile.mjs --check",
+    "selfcheck": "node scripts/selfcheck.mjs"
   },
   "dsh": {
     "bundle": {
