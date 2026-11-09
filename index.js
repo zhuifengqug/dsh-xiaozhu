@@ -126,6 +126,7 @@ function makeHandler(service) {
       const body = await readBody(req, 512 * 1024)
       if (pathname === '/slot') return send(res, 200, service.saveSlot(body))
       if (pathname === '/reference') return send(res, 200, service.setReference(body.text))
+      if (pathname === '/reference/rebuild') return send(res, 200, service.rebuildReference())
       if (pathname === '/propose') return send(res, 200, service.propose(body))
       if (pathname === '/decide') return send(res, 200, service.decide(body))
       if (pathname === '/rollback') return send(res, 200, service.rollback(body.seq))

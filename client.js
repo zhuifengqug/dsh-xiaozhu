@@ -193,6 +193,8 @@ window.__ModuleLoader__.load({
 
         ui.error ? h('div', { className: 'xz-err' }, ui.error) : null,
 
+        state.warning ? h('div', { className: 'xz-err' }, state.warning) : null,
+
         h(Block, {
           title: '契约 → 编译结果',
           hint: state.compiledChars
@@ -265,7 +267,16 @@ window.__ModuleLoader__.load({
                 type: 'button',
                 disabled: ui.busy === 'reference',
                 onClick: function () { ui.run('reference', function () { return api('POST', '/reference', { text: state.reference || '' }) }) }
-              }, '保存底稿')))),
+              }, '保存底稿'),
+              h('button', {
+                type: 'button',
+                className: 'primary',
+                disabled: ui.busy === 'reference:auto',
+                onClick: function () { ui.run('reference:auto', function () { return api('POST', '/reference/rebuild', {}) }) }
+              }, ui.busy === 'reference:auto' ? '采集中…' : '从现有提示词重建')),
+            h('div', { className: 'xz-meta', style: { marginTop: 6, fontSize: 11 } },
+              '只读来源：' + (state.referenceSources || []).map(function (s) { return s.file }).join('  ·  ') +
+              ' —— 采集只读文件，不会写回提示词。')))),
 
         h(Block, { title: '候选', hint: '模型只能往这里写。只有你点采纳，它才会落进槽里；驳回留痕，不会再提。' },
           pending.length
