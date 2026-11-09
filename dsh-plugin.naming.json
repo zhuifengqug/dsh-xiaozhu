@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "policy": "dsh-plugin-naming/v1",
+  "plugin": {
+    "namespace": "zhuifengqug",
+    "name": "spider",
+    "coordinate": "zhuifengqug/spider",
+    "packageName": "@zhuifengqug/dsh-spider"
+  },
+  "names": {
+    "pluginNames": [
+      "spider"
+    ],
+    "loaderIds": [
+      "zhuifengqug-spider"
+    ],
+    "services": [
+      "zhuifengqugSpiderSupplement"
+    ],
+    "tools": [
+      "spider_propose",
+      "spider_contract",
+      "spider_checkup"
+    ],
+    "commands": [],
+    "skills": [],
+    "skillProviders": [],
+    "events": [],
+    "settingsNamespaces": [
+      "zhuifengqug-spider"
+    ],
+    "routes": [
+      {
+        "kind": "prefix",
+        "path": "/api/spider"
+      }
+    ]
+  }
+}

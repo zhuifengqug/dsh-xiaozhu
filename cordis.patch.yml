@@ -1,0 +1,6 @@
+# 小蛛 · 人格补充段
+# 只做一件事：把三槽契约编译成系统提示里的一段，并提供候选/蜕/体检。
+# 依赖全部来自 ctx（systemPrompt / tools / webServer），不 import 任何 @deepseek-ai 包。
+- insert:
+    - id: zhuifengqug-spider
+      name: '@zhuifengqug/dsh-spider'

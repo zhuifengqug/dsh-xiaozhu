@@ -1,0 +1,62 @@
+{
+  "name": "@zhuifengqug/dsh-spider",
+  "version": "0.1.0",
+  "description": "虫珀 · 小蛛：把现有人格补成一份可编译、可回滚、可体检的契约。三槽补充（性格质感/关系层/主动行为），候选由人裁决，每次落盘留蜕。",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "dsh-plugin.naming.json",
+    "lib/",
+    "README.md"
+  ],
+  "license": "MIT",
+  "author": "zhuifengqug",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "scripts": {
+    "test": "node --test \"tests/*.test.mjs\"",
+    "check:syntax": "node --check index.js && node --check client.js && node --check lib/paths.mjs && node --check lib/contract.mjs && node --check lib/store.mjs && node --check lib/service.mjs",
+    "check:naming": "node D:/DSHData/home/skills/plugin-write/scripts/validate-names.mjs --manifest ./dsh-plugin.naming.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.1.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    }
+  },
+  "dshTarget": "0.2.2-rc.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "persona",
+    "虫珀",
+    "小蛛"
+  ]
+}
