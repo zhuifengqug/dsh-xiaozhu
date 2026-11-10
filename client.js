@@ -276,7 +276,7 @@ window.__ModuleLoader__.load({
               }, ui.busy === 'reference:auto' ? '采集中…' : '从现有提示词重建')),
             h('div', { className: 'xz-meta', style: { marginTop: 6, fontSize: 11 } },
               '只读来源：' + (state.referenceSources || []).map(function (s) { return s.file }).join('  ·  ') +
-              ' —— 采集只读文件，不会写回提示词。')))),
+              ' —— 采集只读文件，不会写回提示词。'))),
 
         h(Block, { title: '候选', hint: '模型只能往这里写。只有你点采纳，它才会落进槽里；驳回留痕，不会再提。' },
           pending.length
